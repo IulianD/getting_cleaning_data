@@ -24,7 +24,7 @@ The script is heavily commented, here I'll just clarify some of the decisions wh
 
 * Instead of using read.csv() or read.table() to read the big X_ datasets I preferred to use scan() to load them in to a vector. The reasoning here was: this course is about data cleaning, there might be some gremlins lurking  somewhere, it would be easier to flush them out from a vector. I'll know that my vector is clean when:
     * it contains only numbers (and possibly NA but not NAN)
-    * its length equals 561 X number of lines in Y_ - we need to have the same number of observations.
+    * its length equals 561 * number of lines in Y_ - we need to have the same number of observations for X_ and Y_.
     
  Then it's just a question of transforming the vector into a data table. I do this by transforming it first into a matrix. As matrixes are populated the "wrong" way around (columns first), I need to transpose it first and then make it a data.table.
  
